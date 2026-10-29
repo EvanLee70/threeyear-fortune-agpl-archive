@@ -1,3 +1,7 @@
+> **Archived.** This is the source of the AGPL-3.0 version of the site that was served until 2026-10-30.
+> The site now runs an MIT-licensed rewrite: https://github.com/EvanLee70/threeyear-fortune
+> This repository stays public and read-only so that the source of the old version remains available.
+
 # threeyear-fortune
 
 A free, stateless 3-year fortune (saju, 사주) calculator for Korean users.
