@@ -5,7 +5,7 @@ import { calculateSaju } from '@orrery/core/saju'
 import { computeThreeYear } from '../src/threeyear/compute.ts'
 import BirthForm from './BirthForm.tsx'
 import ResultView, { type Result } from './ResultView.tsx'
-import { SOURCE_REPO_URL } from './config.ts'
+import { DISPLAY_NAME, SOURCE_REPO_URL } from './config.ts'
 
 export default function App() {
   const [result, setResult] = useState<Result | null>(null)
@@ -25,7 +25,7 @@ export default function App() {
           const id = ++run.current
           setFailed(false)
           // 결과는 제출 때 한 번만 계산해 둔다 — 다시 그려져도 점수가 바뀌지 않는다.
-          computeThreeYear(input, '').then((r) => {
+          computeThreeYear(input, DISPLAY_NAME).then((r) => {
             if (id !== run.current) return
             if (!r) { setResult(null); setFailed(true); return }
             setResult({ meta, saju: calculateSaju(input), years: r.years })

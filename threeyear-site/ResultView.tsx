@@ -4,6 +4,7 @@ import type { YearResult } from '../src/threeyear/compute.ts'
 import PillarTable from '../src/components/saju/PillarTable.tsx'
 import { formatHeader, type BirthMeta } from './birth.ts'
 import Compare from './Compare.tsx'
+import { DISPLAY_NAME } from './config.ts'
 
 export interface Result {
   meta: BirthMeta
@@ -17,7 +18,7 @@ export default function ResultView({ result }: { result: Result }) {
   const { meta, saju, years } = result
   return (
     <section className="mt-6 space-y-4" aria-label="운세 결과">
-      <p className="text-base font-bold text-gray-900" data-testid="header-line">{formatHeader(meta)}</p>
+      <p className="text-base font-bold text-gray-900" data-testid="header-line">{`${DISPLAY_NAME}님 · ${formatHeader(meta)}`}</p>
       <div className={card}>
         <h2 className="mb-2 text-base font-bold text-gray-900">사주팔자(四柱八字)</h2>
         <PillarTable pillars={saju.pillars} unknownTime={meta.unknownTime} gongmang={saju.gongmang} />
